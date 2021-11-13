@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyFoodButtonStyle" parent="Widget.AppCompat.Button.Borderless">
+        <item name="textAllCaps">false</item>
+        <item name="android:fontFamily">@font/redhat</item>
+    </style>
+
+    <style name="MyFoodTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/redhat</item>
+    </style>
+
+    <style name="TabLayoutTextAppearence" parent="Base.Widget.Design.TabLayout">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="rounded">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+</resources>
