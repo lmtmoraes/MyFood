@@ -26,6 +26,11 @@ class RestaurantFragment : Fragment(R.layout.fragment_rest) {
         }
     )
 
+    private val shopAdapter = ATAdapter(
+            { ShopView(it)
+            }
+    )
+
 
     private var filters = arrayOf(
             FilterItem(1, "Ordenar", closeIcon = R.drawable.ic_baseline_keyboard_arrow_down_24),
@@ -44,20 +49,28 @@ class RestaurantFragment : Fragment(R.layout.fragment_rest) {
         categoryAdapter.items = arrayListOf(
             Category(1, "https://www.ifood.com.br/static/images/categories/market.png", "Mercado",
                 0xFFB6D048),
-            Category(2, "https://www.ifood.com.br/static/images/categories/restaurant.png", "Restaurante",
+            Category(2, "https://www.ifood.com.br/static/images/categories/restaurant.png", "Fast-Food",
                 0xFFE91D2D
             ),
             Category(3, "https://www.ifood.com.br/static/images/categories/drinks.png", "Bebidas", 0xFFF6D553),
             Category(4, "https://static-images.ifood.com.br/image/upload/f_auto/webapp/landingV2/express.png", "Express", 0xFFFF0000),
             Category(5, "https://parceiros.ifood.com.br/static/media/salad.9db040c0.png", "Saudável", 0xFFE92D2D),
-            Category(6, "https://www.ifood.com.br/static/images/categories/drinks.png", "Salgados", 0xFF8C60C5
-            )
         )
 
         bannerAdapter.items = arrayListOf(
             Banner(1, "https://static-images.ifood.com.br/image/upload/t_high/discoveries/itensBasicosNOV21Principal_zE1X.png"),
             Banner(2, "https://static-images.ifood.com.br/image/upload/t_high/discoveries/Bebidas40offPrincipal_cljA.png"),
             Banner(3, "https://static-images.ifood.com.br/image/upload/t_high/discoveries/MerceariaeMatinaisPrincipal_mfDO.png")
+        )
+
+        shopAdapter.items = arrayListOf(
+                Shop(1, "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/201910292243_94aaf166-84cc-4ebf-a35d-d223be34d01f.png", "Coco Bambu"),
+                Shop(2, "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/201906182008_2b157a73-7564-4733-94c1-8d0376e7bb39.png", "Outback"),
+                Shop(3, "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/Logo%20McDonald_MCDON_DRIV15.jpg", "McDonald's"),
+                Shop(4, "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/201801231937__HABIB_VERDE.jpg", "Habib's"),
+                Shop(5, "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/201808031827_1670c674-e866-47ab-9d1a-2c9e3ed16eee.jpg", "Alibaba Árabe"),
+                Shop(6, "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde//pastelaria-a_PASTE_OPENA.jpg", "Pastelaria Afonso Pena"),
+                Shop(7, "https://static-images.ifood.com.br/image/upload/t_thumbnail/logosgde/62ebe1d1-3815-43d4-bf2b-c59172403935/202003261237_VxsJ_.jpeg", "Center Lanches")
         )
 
 
@@ -70,6 +83,10 @@ class RestaurantFragment : Fragment(R.layout.fragment_rest) {
 
             it.rvBanners.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             it.rvBanners.adapter = bannerAdapter
+
+            it.rvShops.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            it.rvShops.adapter = shopAdapter
+
             it.rvBanners.addOnScrollListener(object : RecyclerView.OnScrollListener(){
                 override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                     if (newState == RecyclerView.SCROLL_STATE_IDLE){
