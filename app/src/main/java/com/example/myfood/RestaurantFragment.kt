@@ -96,7 +96,7 @@ class RestaurantFragment : Fragment(R.layout.fragment_rest) {
             })
 
 
-            addDots(it.dots, bannerAdapter.items.size, 0)
+
 
 
             filters.forEach { filter ->
